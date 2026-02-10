@@ -2,111 +2,139 @@
 <html>
 	<!-- etiqueta head: engloba metadatos, hojas de estilo y también scripts -->
 	<head>
-			<!-- title: título que se muestra en la pestaña del navegador -->
-			<title>Juan José Santana Castro</title>
+		<!-- title: título que se muestra en la pestaña del navegador -->
+		<title>Juan José Santana Castro</title>
 		<!-- style: etiqueta de estilos CSS para la página -->
 		<style type="text/css">
+			/* =====================================================
+			   ESTRUCTURA PRINCIPAL - Layout y contenedor
+			   ===================================================== */
 			
-			/* Etiquetas de layout(organización) semántico de HTML5
-			y las setea a elemento bloque, un elemento bloque ocupa
-			todo el ancho disponible y comienza en una línea nueva. */
-
-			header, section, footer, aside, nav, article, figure, figcaption {
-				display: block;}
+			/* Elementos semánticos HTML5 se comportan como bloques */
+			header, section, footer, aside, nav, article {
+				display: block;
+			}
+			
+			/* Cuerpo: color texto, fondo, fuente y espaciado */
 			body {
 				color: #666666;
 				background-color: #f9f8f6;
 				background-image: url("images/dark-wood.jpg");
-				background-position: center;
 				font-family: Georgia, Times, serif;
 				line-height: 1.4em;
 				margin: 0px;
 			}
+			
+			/* Contenedor principal: ancho fijo de 940px y bordeado */
 			.wrapper {
 				width: 940px;
 				margin: 20px auto 20px auto;
 				border: 2px solid #000000;
-				background-color: #ffffff;}
+				background-color: #ffffff;
+			}
+			
+			/* =====================================================
+			   HEADER Y NAVEGACIÓN
+			   ===================================================== */
+			
 			header {
 				height: 160px;
-				background-image: url(images/header.jpg);}
+				background-image: url(images/header.jpg);
+			}
+			
 			h1 {
 				text-indent: -9999px;
 				width: 940px;
 				height: 130px;
-				margin: 0px;}
+				margin: 0px;
+			}
+			
+			/* Barra de navegación: fondo gris y altura fija */
 			nav, footer {
 				clear: both;
 				color: #ffffff;
 				background-color: #aeaca8;
-				height: 30px;}
+				height: 30px;
+			}
+			
 			nav ul {
 				margin: 0px;
-				padding: 5px 0px 5px 30px;}
+				padding: 5px 0px 5px 30px;
+			}
+			
 			nav li {
 				display: inline;
-				margin-right: 40px;}
+				margin-right: 40px;
+			}
+			
+			/* Enlaces navegación: blancos, con efecto hover y current (página activa) */
 			nav li a {
-				color: #ffffff;}
+				color: #ffffff;
+				text-decoration: none;
+			}
+			
 			nav li a:hover, nav li a.current {
-				color: #000000;}
-			/* Layout 2 columnas: float left 659px con padding-right para contenido */
-			section.courses {
+				color: #000000;
+			}
+			
+			/* =====================================================
+			   LAYOUT DE DOS COLUMNAS
+			   ===================================================== */
+			
+			/* Columna principal: flota a la izquierda, 659px con borde derecho */
+			.courses {
 				float: left;
 				width: 659px;
 				border-right: 1px solid #eeeeee;
 				padding-right: 40px;
 				box-sizing: border-box;
 			}
+			
+			/* Artículo: sección de contenido con margen izquierdo */
 			article {
 				clear: both;
 				overflow: auto;
 				width: 100%;
 			}
-			/* ID estudios: referencia para anchor interno desde navegación */
+			
 			article#estudios {
 				margin-left: 40px;
 			}
-			hgroup {
-				margin-top: 40px;}
-			figure {
-				float: left;
-				width: 290px;
-				height: 220px;
-				padding: 5px;
-				margin: 20px;
-				border: 1px solid #eeeeee;}
-			figcaption {
-				font-size: 90%;
-				text-align: left;}
+			
+			/* Barra lateral: 230px flota a la derecha */
 			aside {
 				width: 230px;
 				float: left;
 				padding: 0px 0px 0px 20px;
 			}
-			/* Reglas alineadas con index.html */
-			.cv .item p {margin: 6px 0 0 0;}
-			.skill-list {margin: 0 0 0 18px;}
-			/* Tarjeta de resumen: borde izquierdo rosa, sombra, esquinas redondeadas */
+			
+			/* =====================================================
+			   SECCIÓN ESTUDIOS - Tarjeta Principal
+			   ===================================================== */
+			
+			/* Grupo de títulos para estudios */
+			hgroup {
+				margin-top: 40px;
+			}
+			
+			/* Tarjeta de resumen con ícono, sombra y borde izquierdo rosa */
 			.studies-summary {
 				position: relative;
 				display: block;
 				background: #ffffff;
-				border-left: 5px solid #de6581;
-				padding: 14px 24px 14px 64px;
+				border-left: 5px solid #de6581; /* Borde rosa distintivo */
+				padding: 14px 24px 14px 64px; /* Espacio para ícono a la izquierda */
 				margin: 12px 0 16px 0;
 				color: #333333;
 				line-height: 1.5;
-				box-shadow: 0 6px 18px rgba(0,0,0,0.05);
-				border-radius: 6px;
-				font-style: normal;
+				box-shadow: 0 6px 18px rgba(0,0,0,0.05); /* Sombra suave */
+				border-radius: 6px; /* Esquinas redondeadas */
 				font-family: Arial, Helvetica, sans-serif;
 				font-size: 1em;
 				transition: transform 180ms ease, box-shadow 180ms ease;
 			}
-
-			/* Ícono circular con pseudo-elemento ::before (gradiente rosa) */
-
+			
+			/* Ícono de graduación: círculo con gradiente rosa usando ::before */
 			.studies-summary::before {
 				content: "🎓";
 				position: absolute;
@@ -115,7 +143,7 @@
 				transform: translateY(-50%);
 				width: 40px;
 				height: 40px;
-				background: linear-gradient(135deg,#de6581,#f79ca2);
+				background: linear-gradient(135deg, #de6581, #f79ca2);
 				color: #fff;
 				border-radius: 50%;
 				display: flex;
@@ -124,79 +152,101 @@
 				font-size: 18px;
 				box-shadow: 0 4px 10px rgba(0,0,0,0.08);
 			}
-
-			/* Efecto hover: levanta tarjeta 3px y aumenta sombra */
+			
+			/* Efecto interactivo: elevar tarjeta al pasar el mouse */
 			.studies-summary:hover {
 				transform: translateY(-3px);
 				box-shadow: 0 12px 28px rgba(0,0,0,0.08);
 			}
-
-			.studies-summary .meta {margin-top:10px}
-
-			/* Pills: etiquetas redondeadas con fondo y color rosa */
-			.studies-summary .pill {
-				display:inline-block;
-				background:#fff2f4;
-				color:#b23b60;
-				padding:4px 8px;
-				margin-right:8px;
-				border-radius:12px;
-				font-size:0.85em;
+			
+			/* Metadatos: etiquetas de habilidades con margen superior */
+			.studies-summary .meta {
+				margin-top: 10px;
 			}
+			
+			/* Pills: etiquetas redondeadas de habilidades con fondo rosa claro */
+			.studies-summary .pill {
+				display: inline-block;
+				background: #fff2f4; /* Fondo rosa muy pálido */
+				color: #b23b60; /* Texto rosa oscuro */
+				padding: 4px 8px;
+				margin-right: 8px;
+				border-radius: 12px; /* Muy redondeado */
+				font-size: 0.85em;
+			}
+			
+			/* =====================================================
+			   DETALLES CV Y TÍTULOS
+			   ===================================================== */
+			
+			/* Títulos h2 y h3: peso normal y color específico para h3 */
+			h2 {
+				margin: 10px 0px 5px 0px;
+				padding: 0px;
+				color: #333333;
+				font-weight: normal;
+			}
+			
+			h3 {
+				margin: 0px 0px 10px 0px;
+				color: #de6581; /* Rosa para subtítulos */
+				font-weight: normal;
+			}
+			
+			/* Títulos en barra lateral con color rosa */
+			aside h2 {
+				padding: 30px 0px 10px 0px;
+				color: #de6581;
+			}
+			
+			/* Enlaces de barra lateral */
 			aside section a {
 				display: block;
 				padding: 10px;
 				border-bottom: 1px solid #eeeeee;
+				color: #de6581;
+				text-decoration: none;
 			}
+			
 			aside section a:hover {
 				color: #985d6a;
 				background-color: #efefef;
 			}
-			/* Responsive: en pantallas ≤800px apila contenido verticalmente */
-			@media (max-width: 800px) {
-				aside {float: none; width: auto; padding: 0 0 0 0;}
-				section.courses {width: auto; float: none; border-right: none;}
-				.cv-panel {margin-left: 0;}
-			}
-			aside section a {
-				display: block;
-				padding: 10px;
-				border-bottom: 1px solid #eeeeee;}
-			aside section a:hover {
-				color: #985d6a;
-				background-color: #efefef;}
-			a {
-				color: #de6581;
-				text-decoration: none;}
-			h1, h2, h3 {
-				font-weight: normal;}
-			h2 {
-				margin: 10px 0px 5px 0px;
-				padding: 0px;}
-			h3 {
-				margin: 0px 0px 10px 0px;
-				color: #de6581;}
-			aside h2 {
-				padding: 30px 0px 10px 0px;
-				color: #de6581;}
-			footer {
-				font-size: 80%;
-				padding: 7px 0px 0px 20px;}
-			/* Estilos para sección CV */
+			
+			/* Sección CV: detalles de formación e idiomas */
 			.cv {
 				margin: 10px 0;
 				padding: 10px 10px 20px 0px;
 			}
+			
 			.cv .item {
 				margin-bottom: 12px;
 			}
+			
+			.cv .item p {
+				margin: 6px 0 0 0;
+			}
+			
+			/* Subtítulos dentro de CV items */
 			.cv h4 {
 				margin: 0 0 6px 0;
 				color: #333333;
 				font-size: 1em;
+				font-weight: normal;
 			}
+			
+			/* Lista de habilidades: con sangría izquierda */
 			.skill-list {
 				margin: 0 0 0 18px;
+			}
+			
+			/* =====================================================
+			   FOOTER
+			   ===================================================== */
+			
+			footer {
+				font-size: 80%;
+				padding: 7px 0px 0px 20px;
 			}
 		</style>
 		<!--[if lt IE 9]>
@@ -204,48 +254,71 @@
 		<![endif]-->
 	</head>
 	<body>
+		<!-- Contenedor principal: envuelve todo el contenido (ancho fijo 940px) -->
 		<div class="wrapper">
+			<!-- HEADER: Encabezado con título y navegación -->
 			<header>
 				<h1>Curriculum Vitae</h1>
+				<!-- Barra de navegación con links a diferentes secciones -->
 				<nav>
 					<ul>
 						<li><a href="index.html">Inicio</a></li>
-						<!-- Estudios marcado como current (página activa) -->
-				<li><a href="#estudios" class="current">Estudios</a></li>
+						<!-- Enlace "Estudios" con class="current" (marca la página activa) y destino #estudios -->
+						<li><a href="#estudios" class="current">Estudios</a></li>
 						<li><a href="">Proyectos</a></li>
 						<li><a href="">Contacto</a></li>
 					</ul>
 				</nav>
 			</header>
-			<!-- Contenido principal: flotará a la izquierda (659px) -->
-		<section class="courses">
-				<!-- ID estudios: destino de anchor desde navegación -->
-			<article id="estudios">
+			
+			<!-- CONTENIDO PRINCIPAL: Sección flotante a la izquierda (659px) -->
+			<section class="courses">
+				<!-- ARTÍCULO CON ID "estudios": Destino del enlace de navegación #estudios -->
+				<article id="estudios">
+					<!-- Grupo de títulos: Sección principal y subtítulo con nombre -->
 					<hgroup>
 						<h2>Estudios</h2>
 						<h3>Juan José Santana Castro</h3>
 					</hgroup>
-					<!-- Tarjeta elegante con resumen y skills -->
-				<div class="studies-summary">
+					
+					<!-- 
+						TARJETA DE RESUMEN: Aquí va la información principal destacada
+						- Tiene ícono de graduación (🎓) a la izquierda usando pseudo-elemento ::before
+						- Borde izquierdo rosa distintivo (5px sólido #de6581)
+						- Sombra suave para efecto de elevación
+						- Al pasar el mouse: se eleva 3px y aumenta la sombra
+					-->
+					<div class="studies-summary">
 						<p>Soy <strong>Juan José Santana Castro</strong>. Tengo formación en <strong>FP - SMR (Sistemas Microinformáticos y Redes)</strong>, con experiencia en mantenimiento básico de equipos, configuración de sistemas y redes. Además poseo un nivel medio de inglés y conocimientos sólidos de ofimática (Word, Excel y PowerPoint).</p>
-						<!-- Etiquetas de habilidades/conocimientos -->
-					<div class="meta">
+						
+						<!-- Pills (etiquetas): Tags redondeadas con fondo rosa pálido para destacar habilidades -->
+						<div class="meta">
 							<span class="pill">FP - SMR</span>
 							<span class="pill">Inglés (B1)</span>
 							<span class="pill">Ofimática</span>
 						</div>
 					</div>
-					<!-- Detalles CV: Formación, Idiomas, Habilidades -->
-				<div class="cv">
+					
+					<!-- 
+						DETALLES DEL CV: Información detallada organizada en items
+						- Cada item (.cv .item) contiene un título (h4) y descripción (p)
+						- Estructura clara para Formación, Idiomas y Habilidades
+					-->
+					<div class="cv">
+						<!-- Item 1: Formación académica -->
 						<div class="item">
 							<h4>Formación</h4>
 							<p><strong>FP - SMR (Sistemas Microinformáticos y Redes)</strong><br/>
 								Formación profesional en instalación, mantenimiento y redes básicas.</p>
 						</div>
+						
+						<!-- Item 2: Idiomas -->
 						<div class="item">
 							<h4>Idiomas</h4>
 							<p><strong>Inglés</strong>: nivel medio (B1).</p>
 						</div>
+						
+						<!-- Item 3: Competencias técnicas con lista anidada -->
 						<div class="item">
 							<h4>Conocimientos y habilidades</h4>
 							<ul class="skill-list">
@@ -256,15 +329,18 @@
 					</div>
 				</article>
 			</section>
-			<!-- Barra lateral: flotará a la derecha (230px) -->
-		<aside>
-
+			
+			<!-- BARRA LATERAL: Flota a la derecha (230px) con información complementaria -->
+			<aside>
+				<!-- Sección 1: Enlaces útiles a recursos externos -->
 				<section class="popular-recipes">
 					<h2>Enlaces Importantes</h2>
 					<a href="https://github.com/03santana">GitHub</a>
 					<a href="https://www.npmjs.com/">Npm</a>
 					<a href="https://stackoverflow.com/">Stack Overflow</a>
 				</section>
+				
+				<!-- Sección 2: Datos de contacto/dirección -->
 				<section class="contact-details">
 					<h2>Dirección</h2>
 					<p>Juan José Santana Castro<br/>
@@ -273,6 +349,8 @@
 						Málaga</p>
 				</section>
 			</aside>
+			
+			<!-- FOOTER: Pie de página con copyright -->
 			<footer>
 				&copy; 2026 Juan José Santana Castro
 			</footer>
